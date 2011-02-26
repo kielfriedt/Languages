@@ -14,6 +14,13 @@
  #    You should have received a copy of the GNU General Public License
  #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+
+#
+# takes a list of files, for each line in each file over 80 characters,
+# the program should print out the file name and line number and warning message. Then, it should print the
+# actual line. Count line numbers starting from 1 (line 1 is the first line you read).
+#
+
 import sys
 for arg in sys.argv:
 	txtfile = open(arg,"r")
