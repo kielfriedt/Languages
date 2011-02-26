@@ -19,6 +19,22 @@
 
 module Hw4 where
 
+--We extend the simple stack language from Homework 3 (Exercise 1) by the following three operations.
+--    • INC increments the topmost element on the stack
+--    • SWAP exchanges the two topmost elements on the stack, and
+--    • POP k pops k elements of the stack.
+--The abstract syntax of this extended language is as follows.
+--type Prog = [Cmd]
+--data Cmd = LD Int
+--                | ADD
+--                | MULT
+--                | DUP
+--                | INC
+--                | SWAP
+--                | POP Int
+
+--Use the following types to represent stack and operation ranks.
+
 -- 1a)
 type Stack = [Int]
 type Prog = [Cmd]
@@ -52,6 +68,10 @@ rank [] r = Just r
 rank (p:ps) r =  let (a,b) = rankC p in
 		 if a > r then Nothing else rank ps ((r-a)+b)
 
+--function evalStatTC for evaluating stack programs that first calls the function rankP to check whether the stack
+--program is type correct and evaluates the program only in that case. For performing the actual evaluation
+-- evalStatTC calls the function sem.
+
 -- 1b)
 tc :: Prog -> Maybe Stack
 tc p = let d = rankP p in
@@ -68,6 +88,8 @@ semCmd DUP (x:s) = (x:x:s)
 semCmd INC (x:s) = ((x+1):s)
 semCmd SWAP (x:y:s) = (y:x:s)
 semCmd (POP i) s = (drop i) s
+
+--____________________________________________________________________________
 
 -- 2a)
 -- 1) f is a list either y is a single element list or x is a list
