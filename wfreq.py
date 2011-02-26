@@ -14,6 +14,9 @@
  #    You should have received a copy of the GNU General Public License
  #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+# count the frequency of words in files and compute some statistics on them.
+#
+
 import sys, re
 for arg in sys.argv[1:]:
 	txtfile = open(arg,"r")
