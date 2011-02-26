@@ -19,6 +19,22 @@
 
 module Hw3 where
 
+--Consider the stack language S defined by the following grammar.
+--S ::= C | C;S
+--C ::= LD Int | ADD | MULT | DUP
+--
+--type Prog = [Cmd]
+--data Cmd = LD Int
+--                | ADD
+--                | MULT
+--                | DUP
+--
+-- type Stack = [Int]
+--
+-- sem :: Prog -> D
+--
+-- semCmd :: Cmd -> D
+
 -- 1)
 type Stack = [Int]
 type Prog = [Cmd]
@@ -36,6 +52,10 @@ semCmd (LD p) ss = (p:ss)
 semCmd ADD (s:r:ss) = ((s+r):ss)
 semCmd MULT (s:r:ss) = ((s--r):ss)
 semCmd DUP (s:ss) = (s:s:ss)
+
+--Extend the abstract syntax to represent macro definitions and calls
+-- Define a new type State to represent the state for the new language.
+-- Define the semantics for the extended language as a function sem2.
 
 -- 2)
 type Macros = [(String,Prog2)]
@@ -59,6 +79,6 @@ semCmd2 MULT2 (x,(s:r:y)) = (x,((s--r):y))
 semCmd2 DUP2 (x,(s:y)) = (x,(s:s:y))
 semCmd2 (DEF p s) (x,y) = (((p,s):x),y)
 semCmd2 (CALL p) (x,y) = case lookup p x of
-                                       Just r -> sem2 r (x,y);
-                                       Nothing -> (x,y);
+                                        Just r -> sem2 r (x,y);
+                                        Nothing -> (x,y);
 
