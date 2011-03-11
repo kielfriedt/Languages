@@ -14,6 +14,8 @@
  #    You should have received a copy of the GNU General Public License
  #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+# Will read in a list of files, counts character frequency and prints the top 20 characters
+#
 import sys 
 for arg in sys.argv[1:]
 	txtfile = open(arg,"r")
