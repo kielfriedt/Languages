@@ -14,7 +14,15 @@
  #    You should have received a copy of the GNU General Public License
  #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+<<<<<<< HEAD
 # Will read in a list of files, counts character frequency and prints the top 20 characters
+=======
+#
+# A character frequency counter.
+# This program will read a list of files from the command line. We want to count all the alpha-numeric
+# characters and print out the top twenty ignoring case.  we ignore spaces and symbols and
+# count both upper and lower case letters the same.
+>>>>>>> eec42f68064e409601f00cb4dfbb97bd1e44a6d7
 #
 import sys 
 for arg in sys.argv[1:]
